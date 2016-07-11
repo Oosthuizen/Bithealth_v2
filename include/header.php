@@ -55,6 +55,9 @@
 <link href="assets/css/water.css" rel="stylesheet">
 <script type="text/javascript" src="assets/js/water.js"></script>
 
+<!-- Running -->
+<link href="assets\css\style.css" rel="stylesheet">
+
 
 <?php
     $includeLogFunctionality = true;

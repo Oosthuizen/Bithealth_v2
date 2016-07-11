@@ -29,7 +29,7 @@
                                     <small>Midrand, Gauteng, South Africa</small>
                                 </h4>
 <!-- ***************************bmi value and color needs to change according to bmi-->
-                                <h1 class="title" style="padding-bottom: 50px; padding-top: 25px"> Your BMI is <b style="color: green">20.45 kg/m<sup>2</sup></b>  </h1>
+                                <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; width: auto; "> Your BMI is <b style="color: green">20.45 kg/m<sup>2</sup></b>  </h2>
                                 <p class="description text-center" style="font-style: italic;">You don't get the ass you want by sitting on it.</p>
                             </div> <!--author end-->
                         </div> <!-- content end-->
@@ -151,46 +151,46 @@
                         <div class="ct-perfect-fourth">
                             <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count">2005</span> </b>km  </h2>
                             
-                            <div class="page page-home" id="main">
-                            <div class="pack">
-                                    <div class="runner running">
-                                      <div class="wrap">
+                            <div id="main" class="page page-home" style="height:200px; width: auto">
+                            <div class="pack pack-1">
+                                <div class="runner running">
+                                    <div class="wrap">
                                         <div class="body">
-                                          <div class="arm">
+                                        <div class="arm">
                                             <div class="left-hand">
                                               <div class="wrist"></div>
-                                          </div>
-                                          <div class="chest">
-                                              <div class="head">
-                                                <div class="neck"></div>
-                                            </div>
-                                            <div class="hip">
-                                                <div class="left-leg">
-                                                  <div class="instep"></div>
-                                              </div>
-                                              <div class="right-leg">
-                                                  <div class="instep"></div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="right-hand">
-                                          <div class="wrist"></div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="ground"></div>
-                  </div>
-              </div>
-          </div>
-      </div> <!--content end-->
-  </div> <!-- card end-->
-</div> <!-- col 2 end-->
+                                            </div> <!-- left hand end-->
+                                            <div class="chest">
+                                                <div class="head">
+                                                    <div class="neck"></div>
+                                                </div>
+                                                <div class="hip">
+                                                    <div class="left-leg">
+                                                        <div class="instep"></div>
+                                                    </div>
+                                                    <div class="right-leg">
+                                                        <div class="instep"></div>
+                                                    </div>
+                                                </div>
+                                            </div> <!--chest end-->
+                                            <div class="right-hand">
+                                                <div class="wrist"></div>
+                                            </div> <!--right hand end-->
+                                        </div> <!-- arm end-->
+                                        </div> <!-- body end-->
+                                    </div> <!-- wrap end-->
+                                </div> <!-- runner end-->
+                                <div class="ground" style="margin:0"></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div> <!--content end-->
+                </div> <!-- card end-->
+            </div> <!-- col 2 end-->
 
-<!--*********time-->            
-<div class="col-sm-4">
-    <div class="card">
+ <!--*********time-->            
+            <div class="col-sm-4">
+                <div class="card">
                     <div class="header">
                         <h4 class="title">Time</h4>
                         <p class="category">How long do you need to exercise today?</p>
