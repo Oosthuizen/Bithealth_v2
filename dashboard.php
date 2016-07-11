@@ -116,8 +116,13 @@ $title = "BitHealth | DASHBOARD";
                         </div>
 <!-- ******************* real time weather-->
                         <div class="content">
+<<<<<<< HEAD
                             <h2 class="title" style="text-align: center"><b><i class="pe-7s-cloud" style="font-size: 82px"></i></b><br/>Wear Jacket!</h2>
                             <h4 class="title" style="text-align: center"><?php echo json_decode($response); ?></h4>
+=======
+                            <h2 class="title" style="text-align: center; letter-spacing: 3px"><b><i class="pe-7s-medal" style="font-size: 30px; padding: 5px"></i></b>2,345</h2>
+                            <h4 class="title" style="text-align: center"> Stay fit! </h4>
+>>>>>>> 940e6e629400d0d03f3a090c60a685a60b5a4fad
                         </div> <!-- content end-->
                     </div> <!--  card end-->
                 </div> <!-- second col-sm-12 -->
