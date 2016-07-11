@@ -64,6 +64,9 @@
              <ul class="nav navbar-nav navbar-right">
 <!-- ************* display weather-->
                     <li>
+                        <a>Sunny</a>
+                    </li>
+                    <li>
                         <a><i class="pe-7s-sun"></i> 19 C</a>
                     </li>
                     <li>

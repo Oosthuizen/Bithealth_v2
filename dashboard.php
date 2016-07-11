@@ -93,12 +93,12 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Today's Weather</h4>
+                            <h4 class="title">Your Vitality Points</h4>
                         </div>
 <!-- ******************* real time weather-->
                         <div class="content">
-                            <h2 class="title" style="text-align: center"><b><i class="pe-7s-cloud" style="font-size: 82px"></i></b><br/>Wear Jacket!</h2>
-                            <h4 class="title" style="text-align: center">11 C outside in Midrand </h4>
+                            <h2 class="title" style="text-align: center; letter-spacing: 3px"><b><i class="pe-7s-medal" style="font-size: 30px; padding: 5px"></i></b>2,345</h2>
+                            <h4 class="title" style="text-align: center"> Stay fit! </h4>
                         </div> <!-- content end-->
                     </div> <!--  card end-->
                 </div> <!-- second col-sm-12 -->
