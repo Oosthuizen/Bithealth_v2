@@ -52,6 +52,10 @@
 <link href="css/scrolling-nav.css" rel="stylesheet">
 <link href="assets/css/runningRoute.css" rel="stylesheet">
 
+<link href="assets/css/water.css" rel="stylesheet">
+<script type="text/javascript" src="assets/js/water.js"></script>
+
+
 <?php
     $includeLogFunctionality = true;
     include __DIR__."/HelperFunctions.php";
