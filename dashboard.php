@@ -4,6 +4,7 @@
 
 <?php include __DIR__."/include/openHTML.php"; ?>
 <?php echo '<link href="assets/css/running.css" rel="stylesheet" />'; ?>
+<?php echo '<link href="assets/css/clock.css" rel="stylesheet" />'; ?>
 <?php include __DIR__."/include/navigation.php"; ?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="display: none;">
   <symbol id="wave">
@@ -180,9 +181,10 @@
                                         </div> <!-- body end-->
                                     </div> <!-- wrap end-->
                                 </div> <!-- runner end-->
+
                                 <div class="ground" style="margin:0"></div>
-                            </div>
-                            </div>
+                            </div> <!--pack end-->
+                            </div> <!-- main end-->
                         </div>
                     </div> <!--content end-->
                 </div> <!-- card end-->
@@ -198,8 +200,18 @@
                     <div class="content">
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
-                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count">50</span> </b>hr  </h2>
-                            <canvas id="Chart" height="100px"></canvas>
+                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count">50</span> </b>hr  </h2>
+                            <div class="clock">
+                              <div class="top"></div>
+                              <div class="right"></div>
+                              <div class="bottom"></div>
+                              <div class="left"></div>
+                              <div class="center"></div>
+                              <div class="shadow"></div>
+                              <div class="hour"></div>
+                              <div class="minute"></div>
+                              <div class="second"></div>
+                            </div> <!-- clock end-->
                         </div>
                     </div> <!--content end-->
                 </div> <!-- card end-->
