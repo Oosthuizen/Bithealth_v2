@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5e45e12-70e1-41f3-a9d5-8f2d4e4b484e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/header.php" afterPath="$PROJECT_DIR$/include/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newPageTemplate.php" afterPath="$PROJECT_DIR$/newPageTemplate.php" />
-    </list>
+    <list default="true" id="c5e45e12-70e1-41f3-a9d5-8f2d4e4b484e" name="Default" comment="" />
     <ignored path="Bithealth.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -282,12 +277,12 @@
       <workItem from="1468159780716" duration="1381000" />
       <workItem from="1468229175033" duration="702000" />
       <workItem from="1468230323506" duration="14311000" />
-      <workItem from="1468260928584" duration="5275000" />
+      <workItem from="1468260928584" duration="5341000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41064000" />
+    <option name="totallyTimeSpent" value="41130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
