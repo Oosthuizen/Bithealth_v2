@@ -1,9 +1,9 @@
-body {
+/*body {
 	margin-top: 60px;
 	font-size: 14px;
 	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
 	background-color: #E5E9ED;
-}
+} */
 .btn:hover,
 .btn:focus,
 .btn:active{
@@ -15,7 +15,7 @@ body {
    -moz-perspective: 800px;
      -o-perspective: 800px;
         perspective: 800px;
-        margin-bottom: 30px;
+       margin-bottom: 30px;
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
@@ -232,13 +232,13 @@ body {
     color: #F74933;
 }
 
- pre.prettyprint{
+  /*pre.prettyprint{
     background-color: #ffffff;
     border: 1px solid #999;
     margin-top: 20px;
     padding: 20px;
     text-align: left;
-}
+}*/
 .atv, .str{
     color: #05AE0E;
 }
