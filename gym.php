@@ -16,7 +16,9 @@
 					</div>
 <!--****************chart data here-->
 					<div class="content">
+						<div class="ct-major-twelfth">
 							<canvas id="activityChart" height="100px"></canvas>
+						</div>
 					</div>
 				</div> <!--card end-->
 			</div> <!--col end-->
