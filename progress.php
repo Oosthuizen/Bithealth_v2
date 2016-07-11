@@ -1,5 +1,5 @@
 <?php /*global variables here*/
-    $title = "BitHealth | PROGRESS";
+$title = "BitHealth | PROGRESS";
 ?>
 
 <?php include __DIR__."/include/openHTML.php"; ?>
