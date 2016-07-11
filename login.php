@@ -4,7 +4,7 @@ session_start();
 
 function DoLogin($username,$Password){
     //for later
-    $url = "http://discotestcloud.cloudapp.net/Service1.svc/test";
+    $url = "http://discotestcloud.cloudapp.net/Service1.svc/Login/$username/$Password";
     $client = curl_init($url);
     $data = "username=$username&pwd=$Password";
 
@@ -18,7 +18,14 @@ function DoLogin($username,$Password){
 
     $_SESSION['Login'] = true;
     $_SESSION['user'] = $result;
-    return 1;
+
+    if (!$result == null)
+    {
+        return 1;
+    }
+    else {
+        return -1;
+    }
 }
 
 //-----------------------------------------------------------
@@ -32,16 +39,12 @@ $ajax->processClientReq();
 //-----------------------------------------------------------
 
 ?>
-</head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BitHealth | Login</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Toastr style -->
-    <link href="assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
 
     <link href="assets/css/login-register.css" rel="stylesheet">
     <link href="assets/css/login-css.css" rel="stylesheet">
@@ -50,10 +53,10 @@ $ajax->processClientReq();
     <script src="ajax/jquery.validate.min.js"></script>
 
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Login validation -->
-    <script src="js/plugins/ValidationFormScript.js"></script>
+
 
 </head>
     <body class="login-background">
@@ -63,7 +66,7 @@ $ajax->processClientReq();
                 <h3>Welcome to Bithealth! :)</h3>
                 <form role="form" id="form1">
                     <div class="form-group" style="max-width: 350px; margin-left: 17.5px;">
-                        <input id="Email" name="email" type="text" class="form-control" placeholder="Email">
+                        <input id="Username" name="email" type="text" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group" style="max-width: 350px; margin-left: 17.5px;">
                         <input id="password" type="password" class="form-control" placeholder="Password">
@@ -77,20 +80,17 @@ $ajax->processClientReq();
         <!-- Mainly scripts -->
         <script src="assets/js/jquery-2.1.1.js"></script>
 
-
-    <!-- Toastr -->
-    <script src="js/plugins/toastr/toastr.min.js"></script>
-
         <script type="text/javascript">
             <?php
             //Prints the js required for the functions/methods created in php.
             $ajax->showJs();
             ?>
             $("#Submit").click(function() {
-                var email = $('#Email').val();
+                var Username = $('#Username').val();
                 var password = $('#password').val();
-                var result = ($.x_DoLogin(email,password));
+                var result = ($.x_DoLogin(Username,password));
                 if (result == "1"){
+                    console.log(result);
                     window.location.replace("dashboard.php");
                 }
                 else {

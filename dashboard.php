@@ -1,5 +1,24 @@
 <?php
-    $title = "BitHealth | DASHBOARD";
+require_once("ajax/jqSajax.class.php");
+session_start();
+$title = "BitHealth | DASHBOARD";
+
+
+    if (isset($_SESSION['Login'])) {
+        $user = json_decode($_SESSION['user']);
+
+        $url = "http://discotestcloud.cloudapp.net/Service1.svc/GetWeather";
+        $client = curl_init($url);
+        curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+        $response = curl_exec($client);
+        curl_close($client);
+
+    }else{
+        //header("Location: http://localhost/SurfWeb/login.php"); /* Redirect browser */
+        exit();
+    }
+
+
 ?>
 
 <?php include __DIR__."/include/openHTML.php"; ?>
@@ -98,7 +117,7 @@
 <!-- ******************* real time weather-->
                         <div class="content">
                             <h2 class="title" style="text-align: center"><b><i class="pe-7s-cloud" style="font-size: 82px"></i></b><br/>Wear Jacket!</h2>
-                            <h4 class="title" style="text-align: center">11 C outside in Midrand </h4>
+                            <h4 class="title" style="text-align: center"><?php echo json_decode($response); ?></h4>
                         </div> <!-- content end-->
                     </div> <!--  card end-->
                 </div> <!-- second col-sm-12 -->

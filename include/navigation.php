@@ -76,7 +76,7 @@
                     <li>
 <!-- ******************* log out-->
                         <a href="login.php">
-                            Log out
+                            Logout
                         </a>
                     </li>
                 </ul>
