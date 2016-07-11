@@ -74,7 +74,7 @@ $(function () {
 
     var ctx = document.getElementById("waterChart").getContext("2d");
     var myNewChart = new Chart(ctx).Bar(barData, barOptions);
-/*
+
     var doughnutData = [
         {
             value: 300,
@@ -109,7 +109,7 @@ $(function () {
     };
 
 
-    var ctx = document.getElementById("doughnutChart").getContext("2d");
+    var ctx = document.getElementById("waterChart").getContext("2d");
     var myNewChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
 
 
@@ -160,7 +160,7 @@ $(function () {
         responsive: true,
     }
 
-    var ctx = document.getElementById("radarChart").getContext("2d");
+    var ctx = document.getElementById("waterChart").getContext("2d");
     var myNewChart = new Chart(ctx).Radar(radarData, radarOptions);
-*/
+
 });
