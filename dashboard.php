@@ -3,6 +3,7 @@
 ?>
 
 <?php include __DIR__."/include/openHTML.php"; ?>
+<?php echo '<link href="assets/css/running.css" rel="stylesheet" />'; ?>
 <?php include __DIR__."/include/navigation.php"; ?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="display: none;">
   <symbol id="wave">
@@ -12,7 +13,6 @@
     <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
   </symbol>
 </svg>
-
 <div class="content" >
     <div class="container-fluid" >
         <div class="row">
@@ -151,15 +151,46 @@
                         <div class="ct-perfect-fourth">
                             <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count">2005</span> </b>km  </h2>
                             
-                            
-                        </div>
-                    </div> <!--content end-->
-                </div> <!-- card end-->
-            </div> <!-- col 2 end-->
+                            <div class="page page-home" id="main">
+                            <div class="pack">
+                                    <div class="runner running">
+                                      <div class="wrap">
+                                        <div class="body">
+                                          <div class="arm">
+                                            <div class="left-hand">
+                                              <div class="wrist"></div>
+                                          </div>
+                                          <div class="chest">
+                                              <div class="head">
+                                                <div class="neck"></div>
+                                            </div>
+                                            <div class="hip">
+                                                <div class="left-leg">
+                                                  <div class="instep"></div>
+                                              </div>
+                                              <div class="right-leg">
+                                                  <div class="instep"></div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="right-hand">
+                                          <div class="wrist"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="ground"></div>
+                  </div>
+              </div>
+          </div>
+      </div> <!--content end-->
+  </div> <!-- card end-->
+</div> <!-- col 2 end-->
 
 <!--*********time-->            
-            <div class="col-sm-4">
-                <div class="card">
+<div class="col-sm-4">
+    <div class="card">
                     <div class="header">
                         <h4 class="title">Time</h4>
                         <p class="category">How long do you need to exercise today?</p>

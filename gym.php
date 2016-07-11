@@ -18,7 +18,44 @@
 					<div class="content">
 						<div class="ct-major-twelfth">
 							<canvas id="activityChart" height="100px"></canvas>
-							
+							<script type="text/javascript">
+								var lineData = {
+									labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+									datasets: [
+									{
+										label: "Activity dataset",
+										fillColor: "rgba(220,220,220,0.5)",
+										strokeColor: "#db162f",
+										pointColor: "#db162f",
+										pointStrokeColor: "#db162f",
+										pointHighlightFill: "#fff",
+										pointHighlightStroke: "#1F77D0",
+										data: [5, 2, 2, 1, 0.5, 3, 3]
+									}
+
+									]
+								};
+
+								var lineOptions = {
+									scaleShowGridLines: true,
+									scaleGridLineColor: "rgba(0,0,0,.05)",
+									scaleGridLineWidth: 1,
+									bezierCurve: true,
+									bezierCurveTension: 0.4,
+									pointDot: true,
+									pointDotRadius: 4,
+									pointDotStrokeWidth: 1,
+									pointHitDetectionRadius: 20,
+									datasetStroke: true,
+									datasetStrokeWidth: 2,
+									datasetFill: true,
+									responsive: true,
+								};
+
+
+								var ctx = document.getElementById("activityChart").getContext("2d");
+								var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+							</script>
 						</div>
 					</div>
 				</div> <!--card end-->
