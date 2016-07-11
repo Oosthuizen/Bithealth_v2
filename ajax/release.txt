@@ -1,0 +1,19 @@
+jqSajax 1.0.2 Relase date 13 sept 2008
+-This release add feature to call object in object. 
+ Now,jqSajax Support calling object in object with N degrees. 
+ Call $class->method1->method2->method3 ... methodN() as $.x_class_method1_method2_method3_ ....methodN()
+ $mysite= new MySite();
+ $mysite->mypage = new MyPage();
+
+ $mysite->ajax=new jqSajax();
+ $mysite->ajax->export("mysite->mypage->method");
+ $mysite->ajax->processClientReq();
+ 
+
+jqSajax 1.0.1 Relase date 26 August 2008
+-add debug message to method fhasil(), to view the error message in PHP function/method.
+-fix minor thing in json support
+
+
+-jqSajax 1.0 Relase date 11 August 2008
+-This file is use with jQuery library.

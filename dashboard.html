@@ -1,0 +1,221 @@
+<?php
+    $title = "BitHealth | DASHBOARD";
+?>
+
+<?php include.__DIR__."/include/openHTML.php"; ?>
+<?php include.__DIR__."/include/navigation.php"; ?>
+
+<!--content starts here-->
+<div class="content" >
+    <div class="container-fluid" >
+        <!--display weather and date-->
+        <div class="row">
+            <div class="col-xs-6">
+                <!--date here-->
+                <h3 id="dateBox">
+                    <script type="text/javascript">
+                        document.getElementById("dateBox").innerHTML = new Date().toDateString();
+                    </script>
+                </h3>
+            </div>
+            <div class="col-xs-6">
+                <h3 class="pull-right"><i class="pe-7s-sun"></i> 19 C</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card">
+                    <div class="card card-user">
+                        <div class="image">
+                            
+                        </div>
+                        <div class="content">
+                            <div class="author">
+                                    <img class="avatar border-gray" src="assets/img/running.jpg" alt="..."/>
+
+                                      <h4 class="title" style="padding-bottom:10px">jonsnow@knownothing.com<br /></h4>
+
+                                <h1 class="title" style="padding-bottom: 50px"> current progress </h1>
+                                <h1 class="title" style="padding-bottom: 25px"> some motivation shit</h1>
+                            </div>
+                            
+                               
+                        </div>
+                    </div>
+                </div>
+            </div> <!--col end-->
+
+            <!--chart here-->
+            <div class="col-sm-4">
+                <div class="card ">
+                    <div class="header">
+                        <h4 class="title">Today's Goals</h4>
+                    </div>
+                    <div class="content">
+                        <div class="table-full-width">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" value="" data-toggle="checkbox">
+                                                    </label>
+                                                </td>
+                                                <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" value="" data-toggle="checkbox" checked="">
+                                                    </label>
+                                                </td>
+                                                <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" value="" data-toggle="checkbox" checked="">
+                                                    </label>
+                                                </td>
+                                                <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit</td>
+
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" value="" data-toggle="checkbox">
+                                                    </label>
+                                                </td>
+                                                <td>Unfollow 5 enemies from twitter</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <hr>
+                                <div class="footer">
+                                    <div class="stats">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                </div>
+                    </div>
+                </div><!--card end-->
+            </div> <!--col end-->
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Email Statistics</h4>
+                        <p class="category">Last Campaign Performance</p>
+                    </div>
+                    <div class="content">
+                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> Open
+                                <i class="fa fa-circle text-danger"></i> Bounce
+                                <i class="fa fa-circle text-warning"></i> Unsubscribe
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div> <!--first col end-->
+
+             <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Users Behavior</h4>
+                        <p class="category">24 Hours performance</p>
+                    </div>
+                    <div class="content">
+                        <div id="chartHours" class="ct-chart"></div>
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> Open
+                                <i class="fa fa-circle text-danger"></i> Click
+                                <i class="fa fa-circle text-warning"></i> Click Second Time
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-history"></i> Updated 3 minutes ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--second col end-->
+
+             <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">other chart shit</h4>
+                        <p class="category">put sth else</p>
+                    </div>
+                    <div class="content">
+                        
+                    </div>
+                </div>
+            </div> <!--thrid col end-->
+        </div> <!--second row end-->
+    </div> <!-- container-fluid end-->
+</div> <!--content end-->
+<!-- end of content-->
+
+<footer class="footer">
+    <div class="container-fluid">
+        
+        <p class="copyright pull-right">
+            &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+        </p>
+    </div>
+</footer>
+
+</div> <!--main panel end-->
+</div> <!--wrapper end-->
+
+
+</body>
+
+
+</html>
+
+<?php include.__DIR__."/include/footer.php"; ?>
+<?php include.__DIR__."/include/closeHTML.php"; ?>

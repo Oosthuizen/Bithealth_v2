@@ -1,0 +1,17 @@
+.before-map
+{
+    background: url(../img/Running.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 90%;
+    width: auto;
+}
+
+#scroll-btn
+{
+    margin: auto;
+    top: 65%;
+    left: 40%;
+    position: absolute;
+}
