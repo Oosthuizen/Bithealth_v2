@@ -3,7 +3,8 @@ $title = "BitHealth | PROGRESS";
 ?>
 
 <?php include __DIR__."/include/openHTML.php"; ?>
-<?php include __DIR__."/include/navigation.php"; ?>
+<?php echo '<link href="assets/css/rotating-card.css" rel="stylesheet">'?>
+<?php include __DIR__."/include/navigation.php";?>
 <!-- CONTENT BEGIN -->
 
 <div class="content">
