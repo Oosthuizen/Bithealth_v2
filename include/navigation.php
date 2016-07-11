@@ -24,9 +24,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="progress.php">
                         <i class="pe-7s-graph"></i>
                         <p>Progress</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="gym.php">
+                        <i class="pe-7s-gym"></i>
+                        <p>Activity</p>
                     </a>
                 </li>
                 <li>
@@ -35,18 +41,7 @@
                         <p>Points</p>
                     </a>
                 </li>
-                <li>
-                    <a href="maps.php">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Running Routes</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="gym.php">
-                        <i class="pe-7s-gym"></i>
-                        <p>Gym</p>
-                    </a>
-                </li>
+                
             </ul>
         </div> <!--side navbar end-->
     </div> <!--sidebar end-->
