@@ -4,7 +4,7 @@ session_start();
 
 function DoLogin($username,$Password){
     //for later
-    $url = "http://localhost:53172/Surf.svc/Login/$username/$Password";
+    $url = "http://discotestcloud.cloudapp.net/Service1.svc/test";
     $client = curl_init($url);
     $data = "username=$username&pwd=$Password";
 

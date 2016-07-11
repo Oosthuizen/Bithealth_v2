@@ -37,7 +37,7 @@
 
 <!-- ChartJS-->
 <script src="assets/js/Chart.min.js"></script>
-<!-- <script src="assets/js/chartjs-demo.js"></script> --> 
+<!--<script src="assets/js/chartjs-demo.js"></script> -->
 
 <!--  Notifications Plugin    -->
 <script src="assets/js/bootstrap-notify.js"></script>
