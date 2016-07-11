@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="progress.php">
+                    <a href="newPageTemplate.php">
                         <i class="pe-7s-graph"></i>
                         <p>Progress</p>
                     </a>
@@ -36,9 +36,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="leaderboard.php">
                         <i class="pe-7s-diamond"></i>
-                        <p>Points</p>
+                        <p>Leaderboard</p>
                     </a>
                 </li>
                 
