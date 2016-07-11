@@ -106,7 +106,9 @@
                     </div>
                     <div class="content">
                         <!--chart.js chart here-->
-                        <canvas id="waterChart" height="100px"></canvas>
+                        <div class="ct-perfect-fourth">
+                            <canvas id="waterChart" height="100px"></canvas>
+                        </div>
                     </div> <!--content end-->
                 </div> <!-- card end-->
             </div> <!-- col 1 end-->
@@ -119,7 +121,9 @@
                     </div>
                     <div class="content">
                         <!--chart.js chart here-->
-                        <canvas id="bmiChart" height="100px"></canvas>
+                        <div class="ct-perfect-fourth">
+                            <canvas id="distChart" height="100px"></canvas>
+                        </div>
                     </div> <!--content end-->
                 </div> <!-- card end-->
             </div> <!-- col 2 end-->
@@ -132,7 +136,9 @@
                     </div>
                     <div class="content">
                         <!--chart.js chart here-->
-                        <canvas id="bmiChart" height="100px"></canvas>
+                        <div class="ct-perfect-fourth">
+                            <canvas id="timeChart" height="100px"></canvas>
+                        </div>
                     </div> <!--content end-->
                 </div> <!-- card end-->
             </div><!-- col 3 end-->
