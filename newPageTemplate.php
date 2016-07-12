@@ -21,9 +21,10 @@ if (isset($_SESSION['Login'])) {
     curl_close($client);
 
     $temp = explode(" ",$response1);
-    $test = $temp[0];
 
     $BMI = $user->BMI;
+    $Ideal = $user->WaterIn;
+    var_dump($Ideal);
 
     $url = "http://discotestcloud.cloudapp.net/Service1.svc/getReqWater/$BMI/18";
     $client = curl_init($url);
@@ -54,14 +55,15 @@ if (isset($_SESSION['Login'])) {
                     <div class="card-container">
                         <div class="card">
                             <div class="front">
-                                <h1 style="text-align: center ">Kilometer's run per week:</h1>
+                                <h1 style="text-align: center ">Kilometers run per week:</h1>
                                 <canvas id="runChart" height="240px" width="auto" style="padding-left: 10px"></canvas> <!-- ct-major-sixth -->
+
                                 <script>
                                     var data = {
                                         labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7"],
                                         datasets: [
                                             {
-                                                label: "My First dataset",
+                                                label: "Kilometers",
                                                 fillColor: "#87CB16",
                                                 strokeColor: "#87CB16",
                                                 backgroundColor: "#87CB16",
@@ -80,6 +82,7 @@ if (isset($_SESSION['Login'])) {
                                      });*/
                                     var ctx = document.getElementById("runChart").getContext("2d");
                                     new Chart(ctx).Bar(data);
+                                    document.getElementById("legendDiv").innerHTML = cc.generateLegend();
                                 </script>
                                 <hr/>
                                 <div style="text-align: center">
@@ -108,18 +111,22 @@ if (isset($_SESSION['Login'])) {
                         <div class="card">
                             <div class="front">
                                 <h1 style="text-align: center">Water Intake:</h1>
-                                <canvas id="waterChart" height="115px" width="auto" style="padding-left: 10px"></canvas>
+                                <canvas id="waterChart" height="100px" width="auto" style="padding-left: 10px"></canvas>
+                                <ul>
+                                    <li style="color: #1DC7EA"><span>Water Consumed</span></li>
+                                    <li style="color: #1D62F0"><span>Ideal Consumption Level</span></li>
+                                </ul>
                                 <script>
                                     var doughnutData = [
                                         {
-                                            value: 30,
+                                            value: <?php echo $response2; ?>,
                                             color: "#1D62F0",
                                             highlight: "#1D62F0",
                                             label: "Water drank."
                                         },
 
                                         {
-                                            value: 70,
+                                            value: <?php echo $Ideal; ?>,
                                             color: "#1DC7EA",
                                             highlight: "#1ab394",
                                             label: "Ideal Water Intake."
@@ -140,8 +147,7 @@ if (isset($_SESSION['Login'])) {
 
 
                                     var ctx3 = document.getElementById("waterChart").getContext("2d");
-                                    var myNewChart3 = new Chart(ctx3).Doughnut(doughnutData, doughnutOptions);
-
+                                    var cc = new Chart(ctx3).Doughnut(doughnutData, doughnutOptions);
                                 </script>
                                 <hr/>
                                 <div style="text-align: center">

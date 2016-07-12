@@ -65,13 +65,13 @@ $ajax->processClientReq();
                 <image alt="logo" src="assets/img/logo.png" style="max-width: 50%; height: auto" id="img-logo"></image>
                 <h3>Welcome to Bithealth! :)</h3>
                 <form role="form" id="form1">
-                    <div class="form-group" style="max-width: 350px; margin-left: 17.5px;">
+                    <div class="form-group" style="width: 250px; margin-left: 32px;">
                         <input id="Username" name="email" type="text" class="form-control" placeholder="Email">
                     </div>
-                    <div class="form-group" style="max-width: 350px; margin-left: 17.5px;">
+                    <div class="form-group" style="width: 250px; margin-left: 32px;">
                         <input id="password" type="password" class="form-control" placeholder="Password">
                     </div>
-                    <button id="Submit" type="button" class="btn btn-primary block" style="margin-bottom: 10px; background-color: #FFFFFF">Login</button>
+                    <button id="Submit" type="button" class="btn btn-primary block" style="margin-bottom: 10px; background-color: #1D62F0;">Login</button>
                 </form>
         </div>
     </div>
