@@ -13,6 +13,28 @@ $title = "BitHealth | DASHBOARD";
         $response = curl_exec($client);
         curl_close($client);
 
+        $url = "http://discotestcloud.cloudapp.net/Service1.svc/getdistance/$user->Age/$user->wight/$user->Length/$user->BMI";
+        $client = curl_init($url);
+        curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+        $response1 = curl_exec($client);
+        curl_close($client);
+
+        $hour = explode(" ", $response);
+        $url = "http://discotestcloud.cloudapp.net/Service1.svc/getRunTime/18";
+        $client = curl_init($url);
+        curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+        $response2 = curl_exec($client);
+        curl_close($client);
+
+        var_dump($response2);
+
+        $idealTime = explode("-", $response2);
+
+        $time = explode(" ", $idealTime[0]);
+        $format = $time[1];
+        $hr = explode(":" , $time[0]);
+
+        //var_dump($user->Age);
     }else{
         //header("Location: http://localhost/SurfWeb/login.php"); /* Redirect browser */
         exit();
@@ -45,11 +67,22 @@ $title = "BitHealth | DASHBOARD";
                             <div class="author">
                                 <img class="avatar border-gray" src="assets/img/running.jpg" alt="..."/>
 <!-- *****************************user name, age, gender here-->
-                                <h4 class="title" style="padding-bottom:10px"> Jihyun, 22 <i class="pe-7s-female" style="font-size: 25px; margin-left: 3px; line-height: 10px; width: 25px;"></i><br />
+                                <h4 class="title" style="padding-bottom:10px"> <?php echo $user->Name?>, <?php echo $user->Age ?> <i class="pe-7s-male" style="font-size: 25px; margin-left: 3px; line-height: 10px; width: 25px;"></i><br />
                                     <small>Midrand, Gauteng, South Africa</small>
                                 </h4>
 <!-- ***************************bmi value and color needs to change according to bmi-->
-                                <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; width: auto; "> Your BMI is <b style="color: green">20.45 kg/m<sup>2</sup></b>  </h2>
+                                <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; width: auto; "> Your BMI is <?php 
+                                 if($user->BMI < 18.5 || ($user->BMI >= 25 && $user->BMI < 30 ) ){
+                                    echo '<b style="color:orange">'.$user->BMI;
+                                 }
+                                 else if($user->BMI >= 18.6 && $user->BMI < 24.9){
+                                    echo '<b style="color:green">'.$user->BMI;
+                                 }
+                                 else{
+                                    echo '<b style="color:red">' .$user->BMI;
+                                 }
+                                ?>
+                                kg/m<sup>2</sup></b>  </h2>
                                 <p class="description text-center" style="font-style: italic;">You don't get the ass you want by sitting on it.</p>
                             </div> <!--author end-->
                         </div> <!-- content end-->
@@ -112,17 +145,12 @@ $title = "BitHealth | DASHBOARD";
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Today's Weather</h4>
+                            <h4 class="title">Your Points</h4>
                         </div>
-<!-- ******************* real time weather-->
+<!-- ******************* real time points-->
                         <div class="content">
-<<<<<<< HEAD
-                            <h2 class="title" style="text-align: center"><b><i class="pe-7s-cloud" style="font-size: 82px"></i></b><br/>Wear Jacket!</h2>
-                            <h4 class="title" style="text-align: center"><?php echo json_decode($response); ?></h4>
-=======
-                            <h2 class="title" style="text-align: center; letter-spacing: 3px"><b><i class="pe-7s-medal" style="font-size: 30px; padding: 5px"></i></b>2,345</h2>
+                            <h2 class="title" style="text-align: center; letter-spacing: 3px"><b><i class="pe-7s-medal" style="font-size: 30px; padding: 5px"></i></b><?php echo $user->Points; ?></h2>
                             <h4 class="title" style="text-align: center"> Stay fit! </h4>
->>>>>>> 940e6e629400d0d03f3a090c60a685a60b5a4fad
                         </div> <!-- content end-->
                     </div> <!--  card end-->
                 </div> <!-- second col-sm-12 -->
@@ -141,7 +169,7 @@ $title = "BitHealth | DASHBOARD";
 <!-- ********************water -->                        
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
-                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count">10</span> </b>L  </h2>
+                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count"><?php echo ($user->WaterIn)*0.01; ?></span> </b>L  </h2>
 
                             <!--<canvas id="waterChart" height="100px"></canvas>-->
                             <div class="page">
@@ -174,7 +202,7 @@ $title = "BitHealth | DASHBOARD";
 
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
-                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count">2005</span> </b>km  </h2>
+                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count"><?php echo json_decode($response1); ?></span> </b>m  </h2>
                             
                             <div id="main" class="page page-home" style="height:200px; width: auto">
                             <div class="pack pack-1">
@@ -224,7 +252,7 @@ $title = "BitHealth | DASHBOARD";
                     <div class="content">
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
-                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count">50</span> </b>hr  </h2>
+                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count"><?php echo $hr[0]  ."</span> : <span id=\'count\'" .$hr[1] ."</span></b>" .$format; ?></h2>
                             <div class="clock">
                               <div class="top"></div>
                               <div class="right"></div>
