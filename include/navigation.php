@@ -58,16 +58,13 @@
                     <span class="icon-bar"></span>
                 </button>
 <!-- ************ display username-->
-                <a class="navbar-brand" href="#">Welcome Jihyun Byun</a>
+                <a class="navbar-brand" href="#">Welcome <?php echo $user->Name ." " .$user->SurName?></a>
             </div>
             <div class="collapse navbar-collapse">
              <ul class="nav navbar-nav navbar-right">
 <!-- ************* display weather-->
                     <li>
-                        <a>Sunny</a>
-                    </li>
-                    <li>
-                        <a><i class="pe-7s-sun"></i> 19 C</a>
+                        <a><?php echo json_decode($response); ?></a>
                     </li>
                     <li>
                         <a id = "dateBox">
