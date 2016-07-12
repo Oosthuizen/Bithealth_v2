@@ -1,5 +1,45 @@
 <?php /*global variables here*/
+require_once("ajax/jqSajax.class.php");
+session_start();
 $title = "BitHealth | PROGRESS";
+if (isset($_SESSION['Login'])) {
+    $user = json_decode($_SESSION['user']);
+
+    $url = "http://discotestcloud.cloudapp.net/Service1.svc/GetAllActivitys";
+    $client = curl_init($url);
+    curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+    $response = curl_exec($client);
+    curl_close($client);
+
+    $temp = json_decode($response);
+    $temp = json_decode($temp->GetAllActivitysResult);
+
+    $url = "http://discotestcloud.cloudapp.net/Service1.svc/getWeather";
+    $client = curl_init($url);
+    curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+    $response1 = curl_exec($client);
+    curl_close($client);
+
+    $temp = explode(" ",$response1);
+    $test = $temp[0];
+
+    $BMI = $user->BMI;
+
+    $url = "http://discotestcloud.cloudapp.net/Service1.svc/getReqWater/$BMI/18";
+    $client = curl_init($url);
+    curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+    $response2 = curl_exec($client);
+    curl_close($client);
+
+
+
+
+
+
+}else{
+    //header("Location: http://localhost/SurfWeb/login.php"); /* Redirect browser */
+    exit();
+}
 ?>
 
 <?php include __DIR__."/include/openHTML.php"; ?>
@@ -14,22 +54,22 @@ $title = "BitHealth | PROGRESS";
                     <div class="card-container">
                         <div class="card">
                             <div class="front">
-                                <h1 style="text-align: center">Running Stuff </h1>
+                                <h1 style="text-align: center ">Kilometer's run per week:</h1>
                                 <canvas id="runChart" height="240px" width="auto" style="padding-left: 10px"></canvas> <!-- ct-major-sixth -->
                                 <script>
                                     var data = {
-                                        labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7"],
                                         datasets: [
                                             {
                                                 label: "My First dataset",
-                                                fillColor: "#1F77D0",
-                                                strokeColor: "#1F77D0",
-                                                backgroundColor: "#1F77D0",
-                                                borderColor: "#1F77D0",
+                                                fillColor: "#87CB16",
+                                                strokeColor: "#87CB16",
+                                                backgroundColor: "#87CB16",
+                                                borderColor: "#87CB16",
                                                 borderWidth: 2,
-                                                hoverBackgroundColor: "##1F77D0",
+                                                hoverBackgroundColor: "#1F77D0",
                                                 hoverBorderColor: "#1F77D0",
-                                                data: [65, 59, 80, 81, 56, 55, 40],
+                                                data: [15, 21, 18, 14, 21, 20, 19],
                                             }
                                         ]
                                     };
@@ -50,8 +90,10 @@ $title = "BitHealth | PROGRESS";
                             <!-- Back of card start-->
                             <div class="back">
                                 <div class="content">
-                                    <h1> QWERTYEWQYUYREW
-                                        QWEREWQWERT</h1>
+                                    <p style="font-style: italic; text-align: center">"Don't ask me why I run... Ask yourself why you dont't?"<small> - Unknown</small></p>
+                                    <hr/>
+                                    <h4>Why People Should Run More Often!</h4>
+                                    <p style="text-align: justify">Running is the most accessible of aerobic sports.  There's no question running is one of the best ways to improve your fitness quickly, lose weight, inches and feel great about yourself.  The term has been in use since at least the early 1980s when it was used to describe a more adventurous form of jogging where the runner would incorporate a variety of movements transforming a jogging session into a more demanding, enjoyable and expressive physical experience. Running is a flexible method of training.  You can run anywhere without fancy equipment. Running is inexpensive and easy to learn.  Running is a great way to start the day and it's a great way to clear your head. </p>
                                 </div>
                             </div>
                         </div>
@@ -65,22 +107,22 @@ $title = "BitHealth | PROGRESS";
                     <div class="card-container">
                         <div class="card">
                             <div class="front">
-                                <h1 style="text-align: center">Water Stuff </h1>
+                                <h1 style="text-align: center">Water Intake:</h1>
                                 <canvas id="waterChart" height="115px" width="auto" style="padding-left: 10px"></canvas>
                                 <script>
                                     var doughnutData = [
                                         {
                                             value: 30,
-                                            color: "#a3e1d4",
-                                            highlight: "#1ab394",
-                                            label: "running"
+                                            color: "#1D62F0",
+                                            highlight: "#1D62F0",
+                                            label: "Water drank."
                                         },
 
                                         {
                                             value: 70,
-                                            color: "#b5b8cf",
+                                            color: "#1DC7EA",
                                             highlight: "#1ab394",
-                                            label: "yoga"
+                                            label: "Ideal Water Intake."
                                         }
                                     ];
 
@@ -110,8 +152,11 @@ $title = "BitHealth | PROGRESS";
                             <!-- Back of card start-->
                             <div class="back">
                                 <div class="content">
-                                    <h1> QWERTYEWQYUYREW
-                                        QWEREWQWERT</h1>
+                                    <p style="font-style: italic; text-align: center">"Water is the only drink for a wise man."<small> - Henry David Thoreau</small></p>
+                                    <hr/>
+                                    <h4>Why is drinking water important?</h4>
+                                    <p style="text-align: justify">Around of 70% of the body is comprised of water, and around of 71% of the planet's surface is covered by water. Perhaps it is the ubiquitous nature of water that means that drinking enough of it each day is not at the top of many people's lists of healthy priorities?
+                                        One part of the body that relies on adequate water intake is the kidneys. The kidneys are organs that might not get as much attention as the heart or lungs, but they are responsible for many functions that help keep the body as healthy as possible</p>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +169,7 @@ $title = "BitHealth | PROGRESS";
                 <div class="card-container">
                     <div class="card">
                         <div class="front">
-                            <h1 style="text-align: center">BMI Stuff </h1>
+                            <h1 style="text-align: center"> Weekly BMI:</h1>
                             <canvas id="bmiChart" height="115px" width="auto" style="padding-left: 10px"></canvas>
                             <script>
                                 var lineData = {
@@ -138,7 +183,7 @@ $title = "BitHealth | PROGRESS";
                                             pointStrokeColor: "#db162f",
                                             pointHighlightFill: "#fff",
                                             pointHighlightStroke: "#1F77D0",
-                                            data: [5, 2, 2, 1, 0.5, 3, 3]
+                                            data: [21, 21, 21, 22, 22, 23, 23]
                                         }
 
                                     ]
@@ -173,8 +218,10 @@ $title = "BitHealth | PROGRESS";
                         <!-- Back of card start-->
                         <div class="back">
                             <div class="content">
-                                <h1> QWERTYEWQYUYREW
-                                    QWEREWQWERT</h1>
+                                <p style="font-style: italic; text-align: center">"You can only fail if you QUIT!"<small> - Unknown</small></p>
+                                <hr/>
+                                <h4>What is BMI?</h4>
+                                <p style="text-align: justify">BMI stands for Body Mass Index. It is a measure of body composition. BMI is calculated by taking a person's weight and dividing by their height squared. The higher the figure the more overweight you are. Like any of these types of measures it is only an indication and other issues such as body type and shape have a bearing as well.</p>
                             </div>
                         </div>
                     </div>
@@ -188,21 +235,21 @@ $title = "BitHealth | PROGRESS";
                 <div class="card-container">
                     <div class="card">
                         <div class="front">
-                            <h1 style="text-align: center">Activity Stuff </h1>
+                            <h1 style="text-align: center">Number of daily activities:</h1>
                             <canvas id="radarChart" height="115px" width="auto" style="padding-left: 10px"></canvas>
                             <script>
                                 var radarData = {
-                                    labels: ["Eating", "Drinking", "Sleeping", "Cycling", "Running"],
+                                    labels: ["Running", "Cycling", "Swimming", "Kickbox", "Virgin Active"],
                                     datasets: [
                                         {
                                             label: "My First dataset",
                                             fillColor: "rgba(220,220,220,0.2)",
-                                            strokeColor: "rgba(220,220,220,1)",
-                                            pointColor: "rgba(220,220,220,1)",
-                                            pointStrokeColor: "#fff",
+                                            strokeColor: "#FF9500",
+                                            pointColor: "#FF9500",
+                                            pointStrokeColor: "#FF9500",
                                             pointHighlightFill: "#fff",
                                             pointHighlightStroke: "rgba(220,220,220,1)",
-                                            data: [65, 59, 90, 55, 40]
+                                            data: [2, 1, 1, 1, 1]
                                         }
                                     ]
                                 };
@@ -212,12 +259,12 @@ $title = "BitHealth | PROGRESS";
                                     angleShowLineOut: true,
                                     scaleShowLabels: false,
                                     scaleBeginAtZero: true,
-                                    angleLineColor: "rgba(0,0,0,.1)",
+                                    angleLineColor: "#1DC7EA",
                                     angleLineWidth: 1,
                                     pointLabelFontFamily: "'Arial'",
                                     pointLabelFontStyle: "normal",
                                     pointLabelFontSize: 10,
-                                    pointLabelFontColor: "#666",
+                                    pointLabelFontColor: "#FF9500",
                                     pointDot: true,
                                     pointDotRadius: 3,
                                     pointDotStrokeWidth: 1,
@@ -226,7 +273,7 @@ $title = "BitHealth | PROGRESS";
                                     datasetStrokeWidth: 2,
                                     datasetFill: true,
                                     responsive: true,
-                                }
+                                };
 
                                 var ctx = document.getElementById("radarChart").getContext("2d");
                                 new Chart(ctx).Radar(radarData, radarOptions);
@@ -241,8 +288,10 @@ $title = "BitHealth | PROGRESS";
                         <!-- Back of card start-->
                         <div class="back">
                             <div class="content">
-                                <h1> QWERTYEWQYUYREW
-                                    QWEREWQWERT</h1>
+                                <p style="font-style: italic; text-align: center">"The activity you're most avoiding contains your biggest opportunity."<small> - Robin Sharma</small></p>
+                                <hr/>
+                                <h4>Physical activity - it's important!</h4>
+                                <p>Physical activity or exercise can improve your health and reduce the risk of developing several diseases like type 2 diabetes, cancer and cardiovascular disease. Physical activity and exercise can have immediate and long-term health benefits. Most importantly, regular activity can improve your quality of life. A minimum of 30 minutes a day can allow you to enjoy these benefits. </p>
                             </div>
                         </div>
                     </div>
@@ -250,108 +299,6 @@ $title = "BitHealth | PROGRESS";
             </div>
              </div>
             <!-- Row 2 End-->
-            <!-- Row 3 start-->
-             <div class="row">
-                 <div class="col-sm-6">
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front">
-                            <h1 style="text-align: center">Running Stuff </h1>
-                            <canvas id="activityChart" height="auto" width="600px" style="padding-left: 10px"></canvas>
-                            <script>
-                                var data = {
-                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                                    datasets: [
-                                        {
-                                            label: "My First dataset",
-                                            fillColor: "#1F4961",
-                                            strokeColor: "#95877A",
-                                            backgroundColor: "#1F4961",
-                                            borderColor: "#95877A",
-                                            borderWidth: 2,
-                                            hoverBackgroundColor: "#FFF1E3",
-                                            hoverBorderColor: "#132845",
-                                            data: [65, 59, 80, 81, 56, 55, 40],
-                                        }
-                                    ]
-                                };
-                                /*
-                                 var myBarChart = new Chart(ctx, {
-                                 type: "bar",
-                                 data: data
-                                 });*/
-                                var ctx = document.getElementById("activityChart").getContext("2d");
-                                new Chart(ctx).Bar(data);
-                            </script>
-                            <hr/>
-                            <div style="text-align: center">
-                                <i class="fa fa-mail-forward"></i>Auto Rotation
-                            </div>
-                        </div>
-                        <!-- End front -->
-                        <!-- Back of card start-->
-                        <div class="back">
-                            <div class="content">
-                                <h1> QWERTYEWQYUYREW
-                                    QWEREWQWERT</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- End col-->
-
-
-                <!-- 2nd End-->
-            </div>
-                 <!--2nd start-->
-                 <div class="col-md-6">
-                <div class="card-container">
-                    <div class="card">
-                        <div class="front">
-                            <h1 style="text-align: center">Running Stuff </h1>
-                            <canvas id="runningChart" height="auto" width="600px" style="padding-left: 10px"></canvas>
-                            <script>
-                                var data = {
-                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                                    datasets: [
-                                        {
-                                            label: "My First dataset",
-                                            fillColor: "#1F4961",
-                                            strokeColor: "#95877A",
-                                            backgroundColor: "#1F4961",
-                                            borderColor: "#95877A",
-                                            borderWidth: 2,
-                                            hoverBackgroundColor: "#FFF1E3",
-                                            hoverBorderColor: "#132845",
-                                            data: [65, 59, 80, 81, 56, 55, 40],
-                                        }
-                                    ]
-                                };
-                                /*
-                                 var myBarChart = new Chart(ctx, {
-                                 type: "bar",
-                                 data: data
-                                 });*/
-                                var ctx = document.getElementById("runningChart").getContext("2d");
-                                new Chart(ctx).Bar(data);
-                            </script>
-                            <hr/>
-                            <div style="text-align: center">
-                                <i class="fa fa-mail-forward"></i>Auto Rotation
-                            </div>
-                        </div>
-                        <!-- End front -->
-                        <!-- Back of card start-->
-                        <div class="back">
-                            <div class="content">
-                                <h1> QWERTYEWQYUYREW
-                                    QWEREWQWERT</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             </div>
-            <!-- Row 3 End-->
     </div>
 </div> <!-- content end-->
 

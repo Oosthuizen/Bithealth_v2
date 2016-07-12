@@ -46,9 +46,6 @@ $title = "BitHealth | DASHBOARD";
         $hr = explode(":" , $time[0]);
         //hr[0] = hour, hr[1] = minute -> convert
         $intHr = (int) $hr[0];
-        //var_dump($time[0]);
-        //var_dump(intval($hr[0]));
-        //var_dump(intval($hr[1]));
     }else{
         //header("Location: http://localhost/SurfWeb/login.php"); /* Redirect browser */
         exit();
@@ -267,7 +264,10 @@ $title = "BitHealth | DASHBOARD";
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
                             <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count"><?php echo $intHr; ?></span> : <span id="count"> <?php echo intval($hr[1]); ?></span></b><?php echo $time[1]; ?></h2>
+<<<<<<< HEAD
                             <h5 class="title" style="text-align: center"> <?php echo $idealTime[1]?> </h5>
+=======
+>>>>>>> origin/master
                             <div class="clock">
                               <div class="top"></div>
                               <div class="right"></div>
