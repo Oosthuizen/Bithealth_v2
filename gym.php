@@ -1,5 +1,27 @@
 <?php /*global variables here*/
+require_once("ajax/jqSajax.class.php");
+session_start();
 $title = "BitHealth | ACTIVITY";
+//GetAllActivities
+	if (isset($_SESSION['Login'])) {
+
+        $user = json_decode($_SESSION['user']);
+
+		$url = "http://discotestcloud.cloudapp.net/Service1.svc/GetAllActivitys";
+		$client = curl_init($url);
+	    curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+	    $activity = curl_exec($client);
+	    curl_close($client);
+
+	    $text = json_decode($activity);
+	    $tamp = $text->GetAllActivitysResult;
+		$out = json_decode($tamp);
+
+	}
+	else{
+		exit();
+	}
+
 ?>
 
 <?php include __DIR__."/include/openHTML.php"; ?>
@@ -12,15 +34,16 @@ $title = "BitHealth | ACTIVITY";
 				<div class="card">
 					<div class="header">
 						<h4 class="title">Activity Graph</h4>
-						<p class="category">Here is graph of your activity</p>
+						<p class="category">Here is graph of all your activities per week</p>
 					</div>
 <!--****************chart data here-->
+
 					<div class="content">
 						<div class="ct-major-twelfth">
 							<canvas id="activityChart" height="100px"></canvas>
 							<script type="text/javascript">
 								var lineData = {
-									labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+									labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7"],
 									datasets: [
 									{
 										label: "Activity dataset",
@@ -67,7 +90,7 @@ $title = "BitHealth | ACTIVITY";
     			<div class="card">
 			        <div class="header">
 			            <h4 class="title">Activity Table</h4>
-			            <p class="category">Here is table of your activity</p>
+			            <p class="category">Here is table of all your activities</p>
 			        </div>
 <!-- ***************Table data here -->
         			<div class="content table-responsive table-full-width">
@@ -75,53 +98,20 @@ $title = "BitHealth | ACTIVITY";
 			                <thead>
 			                    <th>ID</th>
 			                	<th>Activity Type</th>
-			                	<th>Location</th>
+			                	<th>Description</th>
 			                	<th>Date</th>
-			                	<th>Duration (hr)</th>
 			                </thead>
 			                <tbody>
-			                    <tr>
-			                    	<td>1</td>
-			                    	<td>Running</td>
-			                    	<td>Sandton</td>
-			                    	<td>Sat Jul 09 2016</td>
-			                    	<td>1</td>
-			                    </tr>
-			                    <tr>
-			                    	<td>2</td>
-			                    	<td>Yoga</td>
-			                    	<td>Sandton</td>
-			                    	<td>Sat Jul 02 2016</td>
-			                    	<td>1.5</td>
-			                    </tr>
-			                    <tr>
-			                    	<td>3</td>
-			                    	<td>Weighing</td>
-			                    	<td>Waterfall</td>
-			                    	<td>Sat Jun 25 2016</td>
-			                    	<td>0.5</td>
-			                    </tr>
-			                    <tr>
-			                    	<td>4</td>
-			                    	<td>Running</td>
-			                    	<td>Waterfall</td>
-			                    	<td>Sat Jun 18 2016</td>
-			                    	<td>2</td>
-			                    </tr>
-			                    <tr>
-			                    	<td>5</td>
-			                    	<td>Pilates</td>
-			                    	<td>Waterfall</td>
-			                    	<td>Sat Jun 11 2016</td>
-			                    	<td>1</td>
-			                    </tr>
-			                    <tr>
-			                    	<td>6</td>
-			                    	<td>Running</td>
-			                    	<td>Vodacom HQ</td>
-			                    	<td>Sat Jun 04 2016</td>
-			                    	<td>2</td>
-			                    </tr>
+			                <?php 
+			                	for($i = 0; $i < sizeof($out); $i++){
+			                		echo '<tr>';
+				                    echo '<td>' .$out[$i]->Id .'</td>';
+				                    echo '<td>' .$out[$i]->Type .'</td>';
+				                    echo '<td>' .$out[$i]->Discription .'</td>';
+				                    echo '<td>' .$out[$i]->Date .'</td>';
+			                    	echo '</tr>';
+			                	};
+			                ?>
 			                </tbody>
 			            </table>
 			        </div> <!--content table end-->
