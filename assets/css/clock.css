@@ -10,14 +10,14 @@ html, body {
 
 .clock {
   position: relative;
-  height: 180px;
-  width: 180px;
+  height: 150px;
+  width: 150px;
   background: white;
   box-sizing: border-box;
   border-radius: 100%;
   border: 10px solid #67D2C8;
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -75,8 +75,8 @@ html, body {
   border-radius: 100%;
 }
 .clock .shadow {
-  height: 180px;
-  width: 180px;
+  height: 150px;
+  width: 150px;
   position: absolute;
   left: 60px;
   top: 60px;

@@ -6,12 +6,12 @@ $title = "BitHealth | DASHBOARD";
 
     if (isset($_SESSION['Login'])) {
         $user = json_decode($_SESSION['user']);
-
+        /*
         $url = "http://discotestcloud.cloudapp.net/Service1.svc/GetWeather";
         $client = curl_init($url);
         curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
         $response = curl_exec($client);
-        curl_close($client);
+        curl_close($client);*/
 
         $url = "http://discotestcloud.cloudapp.net/Service1.svc/getdistance/$user->Age/$user->wight/$user->Length/$user->BMI";
         $client = curl_init($url);
@@ -19,22 +19,36 @@ $title = "BitHealth | DASHBOARD";
         $response1 = curl_exec($client);
         curl_close($client);
 
-        $hour = explode(" ", $response);
+        //$hour = explode(" ", $response);
         $url = "http://discotestcloud.cloudapp.net/Service1.svc/getRunTime/18";
         $client = curl_init($url);
         curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
         $response2 = curl_exec($client);
         curl_close($client);
 
-        var_dump($response2);
+        $url = "http://discotestcloud.cloudapp.net/Service1.svc/getGeoData";
+        $client = curl_init($url);
+        curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+        $location = curl_exec($client);
+        curl_close($client);
+        $loca = explode(":", $location);
+        //var_dump($location);
+        //var_dump($loca[1]);
+
+        $response2 = str_replace("\"", "", $response2);
+        //var_dump($response2);
 
         $idealTime = explode("-", $response2);
+        //idealTime[0] = time, idealTime[1] = description
 
         $time = explode(" ", $idealTime[0]);
-        $format = $time[1];
+        //time[0] = time, time[1] = format
         $hr = explode(":" , $time[0]);
-
-        //var_dump($user->Age);
+        //hr[0] = hour, hr[1] = minute -> convert
+        $intHr = (int) $hr[0];
+        //var_dump($time[0]);
+        //var_dump(intval($hr[0]));
+        //var_dump(intval($hr[1]));
     }else{
         //header("Location: http://localhost/SurfWeb/login.php"); /* Redirect browser */
         exit();
@@ -65,10 +79,10 @@ $title = "BitHealth | DASHBOARD";
                         </div>
                         <div class="content">
                             <div class="author">
-                                <img class="avatar border-gray" src="assets/img/running.jpg" alt="..."/>
+                                <img class="avatar border-gray" src="assets/img/profile.jpg" alt="..."/>
 <!-- *****************************user name, age, gender here-->
-                                <h4 class="title" style="padding-bottom:10px"> <?php echo $user->Name?>, <?php echo $user->Age ?> <i class="pe-7s-male" style="font-size: 25px; margin-left: 3px; line-height: 10px; width: 25px;"></i><br />
-                                    <small>Midrand, Gauteng, South Africa</small>
+                                <h4 class="title" style="padding-bottom:10px"> <?php echo $user->Name; ?>, <?php echo $user->Age; ?> <i class="pe-7s-male" style="font-size: 25px; margin-left: 3px; line-height: 10px; width: 25px;"></i><br />
+                                    <small><?php echo $loca[4] .", " .$loca[1]; ?><!--Johannesburg, South Africa--></small>
                                 </h4>
 <!-- ***************************bmi value and color needs to change according to bmi-->
                                 <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; width: auto; "> Your BMI is <?php 
@@ -247,12 +261,13 @@ $title = "BitHealth | DASHBOARD";
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Time</h4>
-                        <p class="category">How long do you need to exercise today?</p>
+                        <p class="category">What time is ideal for you to exercise today?</p>
                     </div>
                     <div class="content">
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
-                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count"><?php echo $hr[0]  ."</span> : <span id=\'count\'" .$hr[1] ."</span></b>" .$format; ?></h2>
+                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count"><?php echo $intHr; ?></span> : <span id="count"> <?php echo intval($hr[1]); ?></span></b><?php echo $time[1]; ?></h2>
+                            <h5 class="title" style="text-align: center"> <?php echo $idealTime[1]?> </h5>
                             <div class="clock">
                               <div class="top"></div>
                               <div class="right"></div>

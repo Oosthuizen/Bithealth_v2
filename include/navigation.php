@@ -1,7 +1,23 @@
 <!-- navigation bar -->
 <!-- Applicable to all users -->
+<?php
+require_once("ajax/jqSajax.class.php");
+//session_start();
 
+    if (isset($_SESSION['Login'])) {
+            $user = json_decode($_SESSION['user']);
 
+            $url = "http://discotestcloud.cloudapp.net/Service1.svc/GetWeather";
+            $client = curl_init($url);
+            curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+            $response = curl_exec($client);
+            curl_close($client);
+            $_SESSION['we'] = $response;
+            $weather = json_decode($_SESSION['we']);
+    }else{
+        exit();
+    }
+?>
 
 <div class="wrapper">
     <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg" style="background-image: url('assets/img/sidebar-5.jpg');">
@@ -64,7 +80,8 @@
              <ul class="nav navbar-nav navbar-right">
 <!-- ************* display weather-->
                     <li>
-                        <a><?php echo json_decode($response); ?></a>
+                        <a><?php echo $weather; ?></a>
+                        <!-- <a>19c:at Johannesburg</a>-->
                     </li>
                     <li>
                         <a id = "dateBox">
