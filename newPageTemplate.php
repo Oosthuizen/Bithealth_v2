@@ -58,7 +58,7 @@ if (isset($_SESSION['Login'])) {
                                 <canvas id="runChart" height="240px" width="auto" style="padding-left: 10px"></canvas> <!-- ct-major-sixth -->
                                 <script>
                                     var data = {
-                                        labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7"],
                                         datasets: [
                                             {
                                                 label: "My First dataset",
@@ -69,7 +69,7 @@ if (isset($_SESSION['Login'])) {
                                                 borderWidth: 2,
                                                 hoverBackgroundColor: "#1F77D0",
                                                 hoverBorderColor: "#1F77D0",
-                                                data: [65, 59, 80, 81, 56, 55, 40],
+                                                data: [15, 21, 18, 14, 21, 20, 19],
                                             }
                                         ]
                                     };
@@ -183,7 +183,7 @@ if (isset($_SESSION['Login'])) {
                                             pointStrokeColor: "#db162f",
                                             pointHighlightFill: "#fff",
                                             pointHighlightStroke: "#1F77D0",
-                                            data: [5, 2, 2, 1, 0.5, 3, 3]
+                                            data: [21, 21, 21, 22, 22, 23, 23]
                                         }
 
                                     ]

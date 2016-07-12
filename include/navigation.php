@@ -64,7 +64,7 @@
              <ul class="nav navbar-nav navbar-right">
 <!-- ************* display weather-->
                     <li>
-                        <a><?php echo json_decode($response); ?></a>
+                        <a><?php echo $response; ?></a>
                     </li>
                     <li>
                         <a id = "dateBox">
