@@ -66,7 +66,7 @@ $ajax->processClientReq();
                 <h3>Welcome to Bithealth! :)</h3>
                 <form role="form" id="form1">
                     <div class="form-group" style="width: 250px; margin-left: 32px;">
-                        <input id="Username" name="email" type="text" class="form-control" placeholder="Email">
+                        <input id="Username" name="email" type="text" class="form-control" placeholder="Username">
                     </div>
                     <div class="form-group" style="width: 250px; margin-left: 32px;">
                         <input id="password" type="password" class="form-control" placeholder="Password">

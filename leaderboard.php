@@ -1,5 +1,7 @@
 <?php
+require_once("/ajax/jqSajax.class.php");
 $title = "BitHealth | BMI";
+session_start();
 ?>
 
 <?php include __DIR__."/include/openHTML.php"; ?>
