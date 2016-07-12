@@ -40,7 +40,7 @@ require_once("ajax/jqSajax.class.php");
                     </a>
                 </li>
                 <li>
-                    <a href="newPageTemplate.php">
+                    <a href="progress.php">
                         <i class="pe-7s-graph"></i>
                         <p>Progress</p>
                     </a>
