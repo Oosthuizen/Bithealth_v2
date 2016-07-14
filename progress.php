@@ -24,18 +24,12 @@ if (isset($_SESSION['Login'])) {
 
     $BMI = $user->BMI;
     $Ideal = $user->WaterIn;
-    var_dump($Ideal);
 
     $url = "http://discotestcloud.cloudapp.net/Service1.svc/getReqWater/$BMI/18";
     $client = curl_init($url);
     curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
     $response2 = curl_exec($client);
     curl_close($client);
-
-
-
-
-
 
 }else{
     //header("Location: http://localhost/SurfWeb/login.php"); /* Redirect browser */
@@ -111,7 +105,7 @@ if (isset($_SESSION['Login'])) {
                         <div class="card">
                             <div class="front">
                                 <h1 style="text-align: center">Water Intake:</h1>
-                                <canvas id="waterChart" height="100px" width="auto" style="padding-left: 10px"></canvas>
+                                <canvas id="waterChart" height="75px" width="auto" style="padding-left: 10px"></canvas>
                                 <ul>
                                     <li style="color: #1DC7EA"><span>Water Consumed</span></li>
                                     <li style="color: #1D62F0"><span>Ideal Consumption Level</span></li>
@@ -176,7 +170,7 @@ if (isset($_SESSION['Login'])) {
                     <div class="card">
                         <div class="front">
                             <h1 style="text-align: center"> Weekly BMI:</h1>
-                            <canvas id="bmiChart" height="115px" width="auto" style="padding-left: 10px"></canvas>
+                            <canvas id="bmiChart" height="90px" width="auto" style="padding-left: 10px"></canvas>
                             <script>
                                 var lineData = {
                                     labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -242,7 +236,7 @@ if (isset($_SESSION['Login'])) {
                     <div class="card">
                         <div class="front">
                             <h1 style="text-align: center">Number of daily activities:</h1>
-                            <canvas id="radarChart" height="115px" width="auto" style="padding-left: 10px"></canvas>
+                            <canvas id="radarChart" height="90px" width="auto" style="padding-left: 10px"></canvas>
                             <script>
                                 var radarData = {
                                     labels: ["Running", "Cycling", "Swimming", "Kickbox", "Virgin Active"],

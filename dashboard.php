@@ -33,7 +33,14 @@ $title = "BitHealth | DASHBOARD";
         curl_close($client);
         $loca = explode(":", $location);
         //var_dump($location);
-        //var_dump($loca[1]);
+        
+
+        $url = "http://discotestcloud.cloudapp.net/Service1.svc/getReqWater/$user->BMI/18";
+        $client = curl_init($url);
+        curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+        $water = curl_exec($client);
+        curl_close($client);
+        //var_dump((int)($water));
 
         $response2 = str_replace("\"", "", $response2);
         //var_dump($response2);
@@ -174,13 +181,13 @@ $title = "BitHealth | DASHBOARD";
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Water Consumption</h4>
-                        <p class="category">How much do you need to drink today?</p>
+                        <p class="category">How much water you comsumed today?</p>
                     </div>
                     <div class="content">
 <!-- ********************water -->                        
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
-                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count"><?php echo ($user->WaterIn)*0.01; ?></span> </b>L  </h2>
+                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; text-align: center;"> <b><span id="count"><?php echo $user->WaterIn; ?></span> </b>L  </h2>
 
                             <!--<canvas id="waterChart" height="100px"></canvas>-->
                             <div class="page">
@@ -263,7 +270,7 @@ $title = "BitHealth | DASHBOARD";
                     <div class="content">
                         <!--chart.js chart here-->
                         <div class="ct-perfect-fourth">
-                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count"><?php echo $intHr; ?></span> : <span id="count"> <?php echo intval($hr[1]); ?></span></b><?php echo $time[1]; ?></h2>
+                            <h2 class="title" style="padding-bottom: 50px; padding-top: 25px; padding-bottom: 5px;text-align: center;"> <b><span id="count"><?php echo $intHr; ?></span> : <span id="count"> <?php echo intval($hr[1]); ?></span></b><?php echo $time[1] ; ?></h2>
                             <h5 class="title" style="text-align: center"> <?php echo $idealTime[1]?> </h5>
                             <div class="clock">
                               <div class="top"></div>

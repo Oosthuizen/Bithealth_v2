@@ -13,7 +13,7 @@ session_start();
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h1 class="title">Leaderboard</h1>
+                            <h2 class="title">Leaderboard</h1>
                             <p class="category">The <strong>Top Ten</strong> users with the highest points:</p>
                         </div>
                         <!-- ***************Table data here -->
@@ -28,7 +28,7 @@ session_start();
                                 <tr>
                                     <td>1</td>
                                     <td>MDaSilva</td>
-                                    <td>1200</td>
+                                    <td>1050</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
